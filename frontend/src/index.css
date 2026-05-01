@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-surface-950 text-white font-sans antialiased;
+    min-height: 100vh;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-surface-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-surface-600 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-surface-500;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-surface-900/60 backdrop-blur-xl border border-surface-800/50 rounded-2xl;
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300 hover:border-brand-500/30 hover:shadow-glow;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-brand-600 to-brand-500 text-white font-medium px-6 py-2.5 rounded-xl
+           hover:from-brand-500 hover:to-brand-400 transition-all duration-300 
+           shadow-lg shadow-brand-500/25 hover:shadow-brand-500/40 hover:scale-[1.02]
+           active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100;
+  }
+
+  .btn-secondary {
+    @apply bg-surface-800 text-surface-200 font-medium px-6 py-2.5 rounded-xl border border-surface-700
+           hover:bg-surface-700 hover:border-surface-600 transition-all duration-300
+           hover:scale-[1.02] active:scale-[0.98];
+  }
+
+  .btn-danger {
+    @apply bg-red-500/10 text-red-400 font-medium px-6 py-2.5 rounded-xl border border-red-500/20
+           hover:bg-red-500/20 hover:border-red-500/30 transition-all duration-300;
+  }
+
+  .btn-ghost {
+    @apply text-surface-400 font-medium px-4 py-2 rounded-xl
+           hover:bg-surface-800 hover:text-surface-200 transition-all duration-200;
+  }
+
+  .input-field {
+    @apply w-full bg-surface-800/50 border border-surface-700 rounded-xl px-4 py-3 text-white
+           placeholder-surface-500 outline-none transition-all duration-300
+           focus:border-brand-500/50 focus:ring-2 focus:ring-brand-500/20 focus:bg-surface-800;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-todo {
+    @apply bg-surface-700/50 text-surface-300 border border-surface-600/50;
+  }
+
+  .badge-in-progress {
+    @apply bg-blue-500/10 text-blue-400 border border-blue-500/20;
+  }
+
+  .badge-in-review {
+    @apply bg-amber-500/10 text-amber-400 border border-amber-500/20;
+  }
+
+  .badge-done {
+    @apply bg-emerald-500/10 text-emerald-400 border border-emerald-500/20;
+  }
+
+  .badge-low {
+    @apply bg-surface-700/50 text-surface-400;
+  }
+
+  .badge-medium {
+    @apply bg-blue-500/10 text-blue-400;
+  }
+
+  .badge-high {
+    @apply bg-orange-500/10 text-orange-400;
+  }
+
+  .badge-urgent {
+    @apply bg-red-500/10 text-red-400;
+  }
+
+  .badge-admin {
+    @apply bg-violet-500/10 text-violet-400 border border-violet-500/20;
+  }
+
+  .badge-member {
+    @apply bg-sky-500/10 text-sky-400 border border-sky-500/20;
+  }
+
+  .stat-card {
+    @apply glass-card p-6 flex flex-col gap-2;
+  }
+
+  .kanban-column {
+    @apply bg-surface-900/40 rounded-2xl p-4 min-h-[200px] flex flex-col gap-3;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-brand-400 to-brand-300 bg-clip-text text-transparent;
+  }
+
+  .gradient-border {
+    @apply relative;
+  }
+
+  .gradient-border::before {
+    content: '';
+    @apply absolute inset-0 rounded-2xl p-px;
+    background: linear-gradient(135deg, rgba(92, 124, 250, 0.3), rgba(139, 92, 246, 0.1));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
