@@ -1,29 +1,30 @@
 {
-  "name": "ethara-backend",
-  "version": "1.0.0",
-  "description": "Team Task Manager API",
-  "main": "src/index.js",
-  "scripts": {
-    "dev": "nodemon src/index.js",
-    "start": "node src/index.js",
-    "seed": "node prisma/seed.js",
-    "migrate": "npx prisma migrate dev",
-    "generate": "npx prisma generate"
-  },
-  "prisma": {
-    "seed": "node prisma/seed.js"
-  },
-  "dependencies": {
-    "@prisma/client": "^6.6.0",
-    "bcrypt": "^5.1.1",
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.7",
-    "express": "^4.21.2",
-    "express-validator": "^7.2.1",
-    "jsonwebtoken": "^9.0.2"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.9",
-    "prisma": "^6.6.0"
-  }
+    "name":  "ethara-backend",
+    "version":  "1.0.0",
+    "description":  "Team Task Manager API",
+    "main":  "src/index.js",
+    "scripts":  {
+                    "dev":  "nodemon src/index.js",
+                    "start":  "node src/index.js",
+                    "seed":  "node prisma/seed.js",
+                    "migrate":  "npx prisma migrate dev",
+                    "generate":  "npx prisma generate",
+                    "postinstall":  "DATABASE_URL=postgresql://dummy:dummy@localhost/dummy npx prisma generate"
+                },
+    "prisma":  {
+                   "seed":  "node prisma/seed.js"
+               },
+    "dependencies":  {
+                         "@prisma/client":  "^6.6.0",
+                         "bcrypt":  "^5.1.1",
+                         "cors":  "^2.8.5",
+                         "dotenv":  "^16.4.7",
+                         "express":  "^4.21.2",
+                         "express-validator":  "^7.2.1",
+                         "jsonwebtoken":  "^9.0.2"
+                     },
+    "devDependencies":  {
+                            "nodemon":  "^3.1.9",
+                            "prisma":  "^6.6.0"
+                        }
 }
