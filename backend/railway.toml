@@ -1,5 +1,5 @@
 [build]
-buildCommand = "npm install && npx prisma generate"
+buildCommand = "npm install && DATABASE_URL=postgresql://dummy:dummy@localhost:5432/dummy npx prisma generate"
 
 [deploy]
 startCommand = "npx prisma migrate deploy && node src/index.js"
